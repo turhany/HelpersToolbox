@@ -6,22 +6,18 @@ namespace HelpersToolbox.Extensions
 {
     public static class ListExtensions
     {
-        /// <summary>
-        /// Removes list elements according to given expression.
-        /// </summary>
-        /// <param name="list">The list.</param>
-        /// <param name="expression">The expression.</param>
-        /// <returns>Given instance's itself.</returns>
         public static IList<TSource> RemoveWhere<TSource>(this IList<TSource> list, Func<TSource, bool> expression)
         {
-            var toRemove = list.Where(expression).ToArray();
+            var itemForRemove = list.Where(expression).ToArray();
 
-            foreach (var source in toRemove)
+            foreach (var item in itemForRemove)
             {
-                list.Remove(source);
+                list.Remove(item);
             }
 
             return list;
         }
+
+        public static IList<TSource> WhereIf<TSource>(this IList<TSource> list, Func<TSource, bool> expression, bool condition) => condition ? list.Where(expression).ToList() : list;
     }
 }

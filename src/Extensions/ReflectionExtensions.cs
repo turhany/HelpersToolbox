@@ -1,13 +1,9 @@
-﻿namespace HelpersToolbox.Extensions
+﻿using System.Reflection;
+
+namespace HelpersToolbox.Extensions
 {
     public static class ReflectionExtensions
     {
-        /// <summary>
-        /// Check object has property.
-        /// </summary>
-        /// <param name="item">The object item.</param>
-        /// <param name="propertyName">Name of the object property.</param>
-        /// <returns></returns>
-        public static bool HasProperty(this object item, string propertyName) => item.GetType().GetProperty(propertyName) != null;
+        public static bool HasAttribute<T>(this FieldInfo info, bool inherit = true) => info.GetCustomAttributes(typeof(T), inherit).Length > 0;
     }
 }

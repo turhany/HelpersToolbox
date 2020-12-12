@@ -1,47 +1,26 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace HelpersToolbox.Extensions
 {
     public static class ObjectExtensions
     {
-        /// <summary>
-        /// Gets the object item property value.
-        /// </summary>
-        /// <typeparam name="T">The object type.</typeparam>
-        /// <param name="item">The object item.</param>
-        /// <param name="propertyName">Name of the object property.</param>
         public static T GetPropertyValue<T>(this object item, string propertyName)
         {
             var propertyInfo = item.GetPropertyInfo(propertyName);
-
             return (T)propertyInfo.GetValue(item, null);
         }
-
-        /// <summary>
-        /// Set the object item property value.
-        /// </summary>
-        /// <typeparam name="T">The object type.</typeparam>
-        /// <param name="item">The object item.</param>
-        /// <param name="propertyName">Name of the object property.</param>
-        /// <param name="value">Value for property.</param>
-        /// <returns></returns>
+        
         public static T SetPropertyValue<T>(this object item, string propertyName, T value)
         {
             var propertyInfo = item.GetPropertyInfo(propertyName);
-
             propertyInfo.SetValue(item, value);
 
             return value;
         }
-
-        /// <summary>
-        /// Get object item Property Info.
-        /// </summary> 
-        /// <param name="item">The object item.</param>
-        /// <param name="propertyName">Name of the object property.</param>
-        /// <returns></returns>
+        
         public static PropertyInfo GetPropertyInfo(this object item, string propertyName)
         {
             if (item == null)
@@ -64,5 +43,15 @@ namespace HelpersToolbox.Extensions
 
             return propertyInfo;
         }
+
+        public static bool HasProperty(this object item, string propertyName) => item.GetType().GetProperty(propertyName) != null;
+
+        public static T GetAttribute<T>(this FieldInfo info, bool inherit = true) where T : Attribute
+        {
+            var attributes = info.GetCustomAttributes(typeof(T), inherit);
+            return attributes.Length > 0 ? (T)attributes[0] : null;
+        }
+
+        public static T DeepClone<T>(T obj) => obj != null ? JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj)) : default;
     }
 }
