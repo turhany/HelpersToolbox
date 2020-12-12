@@ -4,6 +4,8 @@
 
 A set of C# extensions/helpers library
 
+[![NuGet version](https://badge.fury.io/nu/HelpersToolbox.svg)](https://badge.fury.io/nu/HelpersToolbox)
+
 #### Extension Features:
 * String Extensions
   * Truncate
@@ -27,3 +29,8 @@ A set of C# extensions/helpers library
   * DeepClone
 * Reflection Extensions
   * HasAttribute
+
+### Release Notes
+
+## 1.0.0
+* Base Release (deprecated)
