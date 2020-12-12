@@ -33,4 +33,4 @@ A set of C# extensions/helpers library
 ### Release Notes
 
 ## 1.0.0
-* Base Release (deprecated)
+* Base Release
