@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>A set of C# extensions library.</Description>
+    <Description>A set of C# extensions/helpers library</Description>
     <Company>turhany</Company>
     <Authors>Türhan Yıldırım</Authors>
     <PackageLicenseExpression></PackageLicenseExpression>
