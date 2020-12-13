@@ -24,11 +24,11 @@ A set of C# extensions/helpers library
   * GetPropertyValue
   * SetPropertyValue
   * GetPropertyInfo
-  * HasProperty
-  * GetAttribute
+  * HasProperty  
   * DeepClone
 * Reflection Extensions
   * HasAttribute
+  * GetAttribute
 
 ### Release Notes
 
