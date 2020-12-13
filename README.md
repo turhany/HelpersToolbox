@@ -34,3 +34,6 @@ A set of C# extensions/helpers library
 
 ## 1.0.0
 * Base Release
+
+## 1.0.1
+* GetAttribute method moved under the ReflectionExtensions
