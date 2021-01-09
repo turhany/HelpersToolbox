@@ -31,12 +31,16 @@ namespace HelpersToolbox.Samples
             var startsWithI = true;
             var filteredList = cities.WhereIf(p => p.StartsWith("İ"), startsWithI);
             Console.WriteLine($"WhereIf (add expression if condition is true) > {string.Join(',', filteredList)}");
+            Console.WriteLine($"GetPage (pageNumber=1, pageSize=1) > {string.Join(',', cities.GetPage(1, 1))}");
+            Console.WriteLine($"GetPage (pageNumber=1, pageSize=2) > {string.Join(',', cities.GetPage(1, 2))}");
 
             Console.WriteLine();
             Console.WriteLine("QueryableExtensions----");
             var startsWithIs = true;
             var filteredQueryableList = cities.AsQueryable().WhereIf(p => p.StartsWith("İs"), startsWithIs);
             Console.WriteLine($"WhereIf (add expression if condition is true) > {string.Join(',', filteredQueryableList)}");
+            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=1) > {string.Join(',', cities.AsQueryable().AddPaging(1,1))}");
+            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=2) > {string.Join(',', cities.AsQueryable().AddPaging(1,2))}");
 
             Console.WriteLine();
             Console.WriteLine("ObjectExtensions----");
