@@ -18,8 +18,10 @@ A set of C# extensions/helpers library
 * List Extensions
   * RemoveWhere
   * WhereIf
+  * GetPage
 * Queryable Extensions
   * WhereIf
+  * AddPaging
 * Object Extensions
   * GetPropertyValue
   * SetPropertyValue
@@ -37,3 +39,7 @@ A set of C# extensions/helpers library
 
 ## 1.0.1
 * GetAttribute method moved under the ReflectionExtensions
+
+## 1.0.2
+* List Extensions > GetPage extension added
+* Queryable Extensions > AddPaging extension added
