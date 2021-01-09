@@ -41,5 +41,5 @@ A set of C# extensions/helpers library
 * GetAttribute method moved under the ReflectionExtensions
 
 ## 1.0.2
-* List Extensions > GetPage extension added
-* Queryable Extensions > AddPaging extension added
+* List Extensions > GetPage method added
+* Queryable Extensions > AddPaging method added
