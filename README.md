@@ -22,6 +22,8 @@ A set of C# extensions/helpers library
 * Queryable Extensions
   * WhereIf
   * AddPaging
+* Enumerable Extensions
+  * Chunk
 * Object Extensions
   * GetPropertyValue
   * SetPropertyValue
@@ -43,3 +45,6 @@ A set of C# extensions/helpers library
 ## 1.0.2
 * List Extensions > GetPage method added
 * Queryable Extensions > AddPaging method added
+
+## 1.0.3
+* Enumerable Extensions > Chunk method added
