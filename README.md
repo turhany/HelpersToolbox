@@ -36,15 +36,15 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
-## 1.0.0
-* Base Release
-
-## 1.0.1
-* GetAttribute method moved under the ReflectionExtensions
+## 1.0.3
+* Enumerable Extensions > Chunk method added
 
 ## 1.0.2
 * List Extensions > GetPage method added
 * Queryable Extensions > AddPaging method added
 
-## 1.0.3
-* Enumerable Extensions > Chunk method added
+## 1.0.1
+* GetAttribute method moved under the ReflectionExtensions
+
+## 1.0.0
+* Base Release
