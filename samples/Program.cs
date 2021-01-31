@@ -59,7 +59,20 @@ namespace HelpersToolbox.Samples
             var info = Colors.Red.GetType().GetField(nameof(Colors.Red));
             Console.WriteLine($"GetAttribute (Description) > {info.GetAttribute<DescriptionAttribute>().Description}");
             Console.WriteLine($"HasAttribute (Description) > {info.HasAttribute<DescriptionAttribute>()}");
-            
+
+            cities = new List<string> { "İstanbul", "Ankara", "İzmir", "Adana", "Edirne" };
+            var chunkedList = cities.Chunk(2);
+            Console.WriteLine();
+            Console.WriteLine("EnumerableExtensions----");
+            Console.WriteLine($"Chunk/Batch (every batch/chunk has 2 element) > 5 item divided 2 item batch/chunk");
+            var chunkIndex = 1;
+            foreach (var chunk in chunkedList)
+            {
+                Console.WriteLine($"{chunkIndex}. chunk/batch > items -> {string.Join(',',chunk.ToList())}");
+                chunkIndex++;
+            }
+
+
             Console.ReadLine();
         }
 
