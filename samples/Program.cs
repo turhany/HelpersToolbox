@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using HelpersToolbox.Extensions; 
+using HelpersToolbox.Extensions;
+
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 #pragma warning disable 219
 
@@ -19,12 +20,13 @@ namespace HelpersToolbox.Samples
             var sampleJson = "{\"name\":\"turhany\"}";
             Console.WriteLine($"IsValidJson ({sampleJson}) > {sampleJson.IsValidJson()}");
             Console.WriteLine($"IsValidEmail (test@email.com) > {"test@email.com".IsValidEmail()}");
+            Console.WriteLine($"ComputeHashSha(Key: test) (turhany) > {"turhany".ComputeHashSha("test")}");
 
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
 
-            List<string> cities = new List<string>{"İstanbul", "Ankara", "İzmir"};
+            List<string> cities = new List<string> {"İstanbul", "Ankara", "İzmir"};
             Console.WriteLine();
             Console.WriteLine("ListExtensions----");
             Console.WriteLine($"RemoveWere (Delete those starting with a) > {string.Join(',', cities.RemoveWhere(p => p.StartsWith("A")))}");
@@ -39,18 +41,18 @@ namespace HelpersToolbox.Samples
             var startsWithIs = true;
             var filteredQueryableList = cities.AsQueryable().WhereIf(p => p.StartsWith("İs"), startsWithIs);
             Console.WriteLine($"WhereIf (add expression if condition is true) > {string.Join(',', filteredQueryableList)}");
-            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=1) > {string.Join(',', cities.AsQueryable().AddPaging(1,1))}");
-            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=2) > {string.Join(',', cities.AsQueryable().AddPaging(1,2))}");
+            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=1) > {string.Join(',', cities.AsQueryable().AddPaging(1, 1))}");
+            Console.WriteLine($"AddPaging (pageNumber=1, pageSize=2) > {string.Join(',', cities.AsQueryable().AddPaging(1, 2))}");
 
             Console.WriteLine();
             Console.WriteLine("ObjectExtensions----");
-            var person = new Person{Name = "Türhan"};
+            var person = new Person {Name = "Türhan"};
             Console.WriteLine($"GetPropertyValue (Name) > {person.GetPropertyValue<string>(nameof(Person.Name))}");
             person.SetPropertyValue(nameof(Person.Name), "Türhan Yıldırım");
             Console.WriteLine($"GetPropertyValue (Name) > {person.GetPropertyValue<string>(nameof(Person.Name))}");
             Console.WriteLine($"GetPropertyInfo (Name) > {person.GetPropertyInfo(nameof(Person.Name))}");
             Console.WriteLine($"HasProperty (Name) > {person.HasProperty(nameof(Person.Name))}");
-            
+
             var clonedItem = ObjectExtensions.DeepClone<Person>(person);
             Console.WriteLine($"DeepClone (Name) > {clonedItem.Name}");
 
@@ -60,7 +62,7 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"GetAttribute (Description) > {info.GetAttribute<DescriptionAttribute>().Description}");
             Console.WriteLine($"HasAttribute (Description) > {info.HasAttribute<DescriptionAttribute>()}");
 
-            cities = new List<string> { "İstanbul", "Ankara", "İzmir", "Adana", "Edirne" };
+            cities = new List<string> {"İstanbul", "Ankara", "İzmir", "Adana", "Edirne"};
             var chunkedList = cities.Chunk(2);
             Console.WriteLine();
             Console.WriteLine("EnumerableExtensions----");
@@ -68,10 +70,16 @@ namespace HelpersToolbox.Samples
             var chunkIndex = 1;
             foreach (var chunk in chunkedList)
             {
-                Console.WriteLine($"{chunkIndex}. chunk/batch > items -> {string.Join(',',chunk.ToList())}");
+                Console.WriteLine($"{chunkIndex}. chunk/batch > items -> {string.Join(',', chunk.ToList())}");
                 chunkIndex++;
             }
 
+            var citiesDictionary1 = new Dictionary<string, string> {{"istanbul", "istanbul"}};
+            var citiesDictionary2 = new Dictionary<string, string> {{"izmir", "izmir"}};
+            Console.WriteLine();
+            Console.WriteLine("DictionaryExtensionMethods----");
+            citiesDictionary1.Merge(citiesDictionary2); 
+            Console.WriteLine($"Merge (Dict1 = istanbul, Dict2 = izmir ) > {string.Join(',',citiesDictionary1.Select(p => p.Key).ToList())}");
 
             Console.ReadLine();
         }
@@ -84,8 +92,8 @@ namespace HelpersToolbox.Samples
         }
 
         private class Person
-        { 
-            public string Name { get; set; } 
+        {
+            public string Name { get; set; }
         }
     }
 }

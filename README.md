@@ -10,6 +10,7 @@ A set of C# extensions/helpers library
 * String Extensions
   * Truncate
   * EqualsWithIgnoreCase
+  * ComputeHashSha  
   * IsValidJson
   * IsValidUrl
   * IsValidEmail
@@ -33,18 +34,24 @@ A set of C# extensions/helpers library
 * Reflection Extensions
   * HasAttribute
   * GetAttribute
+* Dictionary Extensions
+  * Merge
 
 ### Release Notes
 
-## 1.0.3
+#### 1.0.4
+* String Extensions > ComputeHashSha method added
+* Dictionary Extensions > Merge method added
+
+#### 1.0.3
 * Enumerable Extensions > Chunk method added
 
-## 1.0.2
+#### 1.0.2
 * List Extensions > GetPage method added
 * Queryable Extensions > AddPaging method added
 
-## 1.0.1
+#### 1.0.1
 * GetAttribute method moved under the ReflectionExtensions
 
-## 1.0.0
+#### 1.0.0
 * Base Release

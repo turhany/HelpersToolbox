@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Json;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace HelpersToolbox.Extensions
@@ -14,6 +16,20 @@ namespace HelpersToolbox.Extensions
 
         public static bool EqualsWithIgnoreCase(this string str, string other) => str.Equals(other, StringComparison.InvariantCultureIgnoreCase);
 
+        public static string ComputeHashSha(this string text, string key)
+        {
+            var keyBytes = Encoding.UTF8.GetBytes(key);
+            using var hmac = new HMACSHA1(keyBytes);
+            var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(text));
+            var builder = new StringBuilder();
+            // ReSharper disable once ForCanBeConvertedToForeach
+            for (var i = 0; i < hash.Length; i++)
+            {
+                builder.Append(hash[i].ToString("x2"));
+            }
+            return builder.ToString();
+        }
+        
         public static bool IsValidUrl(this string url)
         {
             if (string.IsNullOrEmpty(url))
@@ -40,7 +56,7 @@ namespace HelpersToolbox.Extensions
         public static bool IsValidEmail(this string text)
         {
             var trimEmail = text?.Trim();
-            if (text != null && !string.IsNullOrWhiteSpace(text.ToString()))
+            if (text != null && !string.IsNullOrWhiteSpace(text))
             {
                 var emailRegexValidator = new Regex(EmailValidateRegexPattern, RegexOptions.None, MatchTimeout);
 
