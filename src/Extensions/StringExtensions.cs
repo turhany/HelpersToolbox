@@ -3,11 +3,14 @@ using System.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Ganss.XSS;
 
 namespace HelpersToolbox.Extensions
 {
     public static class StringExtensions
     {
+        private static HtmlSanitizer HtmlSanitizer = new HtmlSanitizer(); 
+        
         //Pattern get from there https://emailregex.com/
         private const string EmailValidateRegexPattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$";
         private static readonly TimeSpan MatchTimeout = TimeSpan.FromMilliseconds(2000);
@@ -74,6 +77,16 @@ namespace HelpersToolbox.Extensions
             }
 
             return false;
+        }
+
+        public static string SanitizeHtml(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return text;
+            }
+
+            return HtmlSanitizer.Sanitize(text);
         }
     }
 }

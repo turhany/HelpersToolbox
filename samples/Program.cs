@@ -21,6 +21,7 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"IsValidJson ({sampleJson}) > {sampleJson.IsValidJson()}");
             Console.WriteLine($"IsValidEmail (test@email.com) > {"test@email.com".IsValidEmail()}");
             Console.WriteLine($"ComputeHashSha(Key: test) (turhany) > {"turhany".ComputeHashSha("test")}");
+            Console.WriteLine($"SanitizeHtml(<img src='src' onerror=alert(document.cookie)>deneme) > {"<img src='src' onerror=alert(document.cookie)>deneme".SanitizeHtml()}");
 
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
