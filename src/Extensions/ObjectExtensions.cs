@@ -46,6 +46,6 @@ namespace HelpersToolbox.Extensions
 
         public static bool HasProperty(this object item, string propertyName) => item.GetType().GetProperty(propertyName) != null;
 
-        public static T DeepClone<T>(T obj) => obj != null ? JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj)) : default;
+        public static T DeepClone<T>(this T obj) => obj != null ? JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj)) : default;
     }
 }

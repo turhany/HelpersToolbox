@@ -4,20 +4,26 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ganss.XSS;
+using Slugify;
 
 namespace HelpersToolbox.Extensions
 {
     public static class StringExtensions
     {
-        private static HtmlSanitizer HtmlSanitizer = new HtmlSanitizer(); 
-        
+        private static readonly HtmlSanitizer HtmlSanitizer = new HtmlSanitizer();
+        private static readonly SlugHelper SlugHelper = new SlugHelper();
+
         //Pattern get from there https://emailregex.com/
-        private const string EmailValidateRegexPattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$";
+        private const string EmailValidateRegexPattern =
+            @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$";
+
         private static readonly TimeSpan MatchTimeout = TimeSpan.FromMilliseconds(2000);
 
-        public static string Truncate(this string text, int maxLength) => text.Length > maxLength ? $"{text.Substring(0, maxLength - 3)}..." : text;
+        public static string Truncate(this string text, int maxLength) =>
+            text.Length > maxLength ? $"{text.Substring(0, maxLength - 3)}..." : text;
 
-        public static bool EqualsWithIgnoreCase(this string str, string other) => str.Equals(other, StringComparison.InvariantCultureIgnoreCase);
+        public static bool EqualsWithIgnoreCase(this string str, string other) =>
+            str.Equals(other, StringComparison.InvariantCultureIgnoreCase);
 
         public static string ComputeHashSha(this string text, string key)
         {
@@ -30,9 +36,10 @@ namespace HelpersToolbox.Extensions
             {
                 builder.Append(hash[i].ToString("x2"));
             }
+
             return builder.ToString();
         }
-        
+
         public static bool IsValidUrl(this string url)
         {
             if (string.IsNullOrEmpty(url))
@@ -40,7 +47,8 @@ namespace HelpersToolbox.Extensions
                 return false;
             }
 
-            return Uri.TryCreate(url, UriKind.Absolute, out var uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+            return Uri.TryCreate(url, UriKind.Absolute, out var uriResult) &&
+                   (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
         }
 
         public static bool IsValidJson(this string text)
@@ -87,6 +95,16 @@ namespace HelpersToolbox.Extensions
             }
 
             return HtmlSanitizer.Sanitize(text);
+        }
+
+        public static string Slugify(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return text;
+            }
+
+            return SlugHelper.GenerateSlug(text);
         }
     }
 }

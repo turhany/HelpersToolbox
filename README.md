@@ -15,6 +15,7 @@ A set of C# extensions/helpers library
   * IsValidUrl
   * IsValidEmail
   * SanitizeHtml (feyzed on https://github.com/mganss/HtmlSanitizer)
+  * Slugify (feyzed on https://github.com/ctolkien/Slugify)
 * Enum Extensions
   * GetDescription
 * List Extensions
@@ -39,6 +40,11 @@ A set of C# extensions/helpers library
   * Merge
 
 ### Release Notes
+
+#### 1.0.6
+* String Extensions > Slugify method added
+* Object Extensions > DeepClone method usage changed as extension
+* Newtonsoft.Json version updated to 13.0.1
 
 #### 1.0.5
 * String Extensions > SanitizeHtml method added

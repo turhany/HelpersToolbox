@@ -22,6 +22,7 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"IsValidEmail (test@email.com) > {"test@email.com".IsValidEmail()}");
             Console.WriteLine($"ComputeHashSha(Key: test) (turhany) > {"turhany".ComputeHashSha("test")}");
             Console.WriteLine($"SanitizeHtml(<img src='src' onerror=alert(document.cookie)>deneme) > {"<img src='src' onerror=alert(document.cookie)>deneme".SanitizeHtml()}");
+            Console.WriteLine($"Slugify (Türhan Yıldırım) > {"Türhan Yıldırım".Slugify()}");
 
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
@@ -54,7 +55,9 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"GetPropertyInfo (Name) > {person.GetPropertyInfo(nameof(Person.Name))}");
             Console.WriteLine($"HasProperty (Name) > {person.HasProperty(nameof(Person.Name))}");
 
-            var clonedItem = ObjectExtensions.DeepClone<Person>(person);
+            var clonedItem = person.DeepClone();
+            Console.WriteLine($"DeepClone - Original Object hashCode > {person.GetHashCode()}");
+            Console.WriteLine($"DeepClone - Original Object hashCode > {clonedItem.GetHashCode()}");
             Console.WriteLine($"DeepClone (Name) > {clonedItem.Name}");
 
             Console.WriteLine();
