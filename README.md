@@ -16,6 +16,7 @@ A set of C# extensions/helpers library
   * IsValidEmail
   * SanitizeHtml (feyzed on https://github.com/mganss/HtmlSanitizer)
   * Slugify (feyzed on https://github.com/ctolkien/Slugify)
+  * FromJson
 * Enum Extensions
   * GetDescription
 * List Extensions
@@ -33,6 +34,7 @@ A set of C# extensions/helpers library
   * GetPropertyInfo
   * HasProperty  
   * DeepClone
+  * ToJson
 * Reflection Extensions
   * HasAttribute
   * GetAttribute
@@ -40,6 +42,10 @@ A set of C# extensions/helpers library
   * Merge
 
 ### Release Notes
+
+#### 1.0.7
+* String Extensions > FromJson
+* Object Extensions > ToJson
 
 #### 1.0.6
 * String Extensions > Slugify method added

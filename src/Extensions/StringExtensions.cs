@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ganss.XSS;
+using Newtonsoft.Json;
 using Slugify;
 
 namespace HelpersToolbox.Extensions
@@ -105,6 +106,16 @@ namespace HelpersToolbox.Extensions
             }
 
             return SlugHelper.GenerateSlug(text);
+        }
+        
+        public static T FromJson<T>(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return default;
+            }
+            
+            return JsonConvert.DeserializeObject<T>(text);
         }
     }
 }
