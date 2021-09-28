@@ -44,8 +44,8 @@ A set of C# extensions/helpers library
 ### Release Notes
 
 #### 1.0.7
-* String Extensions > FromJson
-* Object Extensions > ToJson
+* String Extensions > FromJson method added
+* Object Extensions > ToJson method added
 
 #### 1.0.6
 * String Extensions > Slugify method added
