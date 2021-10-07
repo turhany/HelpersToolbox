@@ -40,9 +40,16 @@ A set of C# extensions/helpers library
   * GetAttribute
 * Dictionary Extensions
   * Merge
+* Byte Extensions
+  * ToEnum
+* Int Extensions
+  * ToEnum (Int32,Int64)
 
 ### Release Notes
 
+#### 1.0.8
+* Byte Extensions > ToEnum method added
+* Int Extensions > ToEnum method added
 #### 1.0.7
 * String Extensions > FromJson method added
 * Object Extensions > ToJson method added

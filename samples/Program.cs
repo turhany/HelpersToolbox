@@ -87,6 +87,18 @@ namespace HelpersToolbox.Samples
             citiesDictionary1.Merge(citiesDictionary2); 
             Console.WriteLine($"Merge (Dict1 = istanbul, Dict2 = izmir ) > {string.Join(',',citiesDictionary1.Select(p => p.Key).ToList())}");
 
+            Console.WriteLine();
+            Console.WriteLine("ByteExtensions----");
+            byte byteEnum = 1;
+            Console.WriteLine($"Byte: {byteEnum} ToEnum cast (Color.Blue = 1) > {byteEnum.ToEnum<Colors>()}");
+            
+            Console.WriteLine();
+            Console.WriteLine("IntExtensions----");
+            int intEnum = 1;
+            Console.WriteLine($"int: {intEnum} ToEnum cast (Color.Blue = 1) > {intEnum.ToEnum<Colors>()}");
+            Int64 int64Enum = 1;
+            Console.WriteLine($"int64: {int64Enum} ToEnum cast (Color.Blue = 1) > {int64Enum.ToEnum<Colors>()}");
+            
             Console.ReadLine();
         }
 
@@ -94,7 +106,9 @@ namespace HelpersToolbox.Samples
         private enum Colors
         {
             [Description("Red color global description.")]
-            Red = 0
+            Red = 0,
+            [Description("Blue color global description.")]
+            Blue = 1
         }
 
         private class Person

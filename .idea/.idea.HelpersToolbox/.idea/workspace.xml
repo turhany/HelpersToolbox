@@ -21,6 +21,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633820b9579f4675babed79321255f1767788/2f/4cec314d/Enum.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1yBl9ysrpGHWyzv9dcV670JtvEv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -67,7 +70,8 @@
       <workItem from="1632325868568" duration="782000" />
       <workItem from="1632605261779" duration="9000" />
       <workItem from="1632779890629" duration="39000" />
-      <workItem from="1632779947073" duration="423000" />
+      <workItem from="1632779947073" duration="775000" />
+      <workItem from="1633640133447" duration="1728000" />
     </task>
     <servers />
   </component>
