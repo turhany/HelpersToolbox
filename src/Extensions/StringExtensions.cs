@@ -115,7 +115,12 @@ namespace HelpersToolbox.Extensions
                 return default;
             }
             
-            return JsonConvert.DeserializeObject<T>(text);
+            return JsonConvert.DeserializeObject<T>(text, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                ObjectCreationHandling = ObjectCreationHandling.Replace
+            });
         }
     }
 }

@@ -50,6 +50,15 @@ A set of C# extensions/helpers library
 #### 1.0.8
 * Byte Extensions > ToEnum method added
 * Int Extensions > ToEnum method added
+* String Extensions > FromJson method JsonSerializerSettings updated
+  * ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+  * TypeNameHandling = TypeNameHandling.All
+  * ObjectCreationHandling = ObjectCreationHandling.Replace
+* Object Extensions > ToJson method  JsonSerializerSettings updated
+  * ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+  * TypeNameHandling = TypeNameHandling.All
+  * ObjectCreationHandling = ObjectCreationHandling.Replace
+
 #### 1.0.7
 * String Extensions > FromJson method added
 * Object Extensions > ToJson method added

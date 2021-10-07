@@ -55,7 +55,12 @@ namespace HelpersToolbox.Extensions
                 return string.Empty;
             }
             
-            return JsonConvert.SerializeObject(item);
+            return JsonConvert.SerializeObject(item, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                ObjectCreationHandling = ObjectCreationHandling.Replace
+            });
         }
     }
 }
