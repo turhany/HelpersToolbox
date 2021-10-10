@@ -4,7 +4,7 @@
 
 A set of C# extensions/helpers library
 
-[![NuGet version](https://badge.fury.io/nu/HelpersToolbox.svg)](https://badge.fury.io/nu/HelpersToolbox)
+[![NuGet version](https://badge.fury.io/nu/HelpersToolbox.svg)](https://badge.fury.io/nu/HelpersToolbox)  ![Nuget](https://img.shields.io/nuget/dt/HelpersToolbox)
 
 #### Extension Features:
 * String Extensions
