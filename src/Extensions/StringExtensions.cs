@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Json;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +15,21 @@ namespace HelpersToolbox.Extensions
     {
         private static readonly HtmlSanitizer HtmlSanitizer = new HtmlSanitizer();
         private static readonly SlugHelper SlugHelper = new SlugHelper();
+        private static readonly Dictionary<string, string> TurkishEnglishCharMappingForSlugify = new Dictionary<string, string>
+        {
+            {"ı", "i"},
+            {"İ", "I"},
+            {"ö", "o"},
+            {"Ö", "O"},
+            {"ç", "c"},
+            {"Ç", "C"},
+            {"ü", "u"},
+            {"Ü", "U"},
+            {"ğ", "g"},
+            {"Ğ", "G"},
+            {"ş", "s"},
+            {"Ş", "S"}
+        };
 
         //Pattern get from there https://emailregex.com/
         private const string EmailValidateRegexPattern =
@@ -105,6 +122,11 @@ namespace HelpersToolbox.Extensions
                 return text;
             }
 
+            foreach (var charMapping in TurkishEnglishCharMappingForSlugify.Where(charMapping => text.Contains(charMapping.Key)))
+            {
+                text = text.Replace(charMapping.Key, charMapping.Value);
+            }
+            
             return SlugHelper.GenerateSlug(text);
         }
         

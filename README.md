@@ -47,6 +47,9 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.0.9
+* String Extensions > Slugify method turkish char support added
+
 #### 1.0.8
 * Byte Extensions > ToEnum method added
 * Int Extensions > ToEnum method added
