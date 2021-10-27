@@ -33,6 +33,9 @@ A set of C# extensions/helpers library
   * SetPropertyValue
   * GetPropertyInfo
   * HasProperty  
+  * GetFieldValue   
+  * GetFieldInfo  
+  * HasField  
   * DeepClone
   * ToJson
 * Reflection Extensions
@@ -46,6 +49,11 @@ A set of C# extensions/helpers library
   * ToEnum (Int32,Int64)
 
 ### Release Notes
+
+#### 1.1.0
+* Object Extensions > GetFieldValue method added
+* Object Extensions > GetFieldInfo method added
+* Object Extensions > HasField method added
 
 #### 1.0.9
 * String Extensions > Slugify method turkish char support added

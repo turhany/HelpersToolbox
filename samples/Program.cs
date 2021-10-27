@@ -55,6 +55,9 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"GetPropertyValue (Name) > {person.GetPropertyValue<string>(nameof(Person.Name))}");
             Console.WriteLine($"GetPropertyInfo (Name) > {person.GetPropertyInfo(nameof(Person.Name))}");
             Console.WriteLine($"HasProperty (Name) > {person.HasProperty(nameof(Person.Name))}");
+            Console.WriteLine($"GetFieldValue (TestField) > {person.GetFieldValue<string>(nameof(Person.TestField))}");
+            Console.WriteLine($"GetFieldInfo (TestField) > {person.GetFieldInfo(nameof(Person.TestField))}");
+            Console.WriteLine($"HasField (TestField) > {person.HasField(nameof(Person.TestField))}");
             Console.WriteLine($"ToJson > {person.ToJson()}");
 
             var clonedItem = person.DeepClone();
@@ -113,6 +116,7 @@ namespace HelpersToolbox.Samples
 
         private class Person
         {
+            public string TestField = "TestFieldValue";
             public string Name { get; set; }
         }
     }
