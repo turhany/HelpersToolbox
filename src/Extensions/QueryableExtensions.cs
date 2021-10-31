@@ -11,6 +11,12 @@ namespace HelpersToolbox.Extensions
         public static IQueryable<T> AddPaging<T>(this IQueryable<T> queryable, int pageNumber, int pageSize)
         {
             pageNumber -= 1;
+            
+            if (pageNumber <= 0)
+            {
+                pageNumber = 1;
+            }
+            
             return queryable.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
         }
     }

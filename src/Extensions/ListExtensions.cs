@@ -23,6 +23,12 @@ namespace HelpersToolbox.Extensions
         public static IList<TSource> GetPage<TSource>(this IList<TSource> list, int pageNumber, int pageSize)
         {
             pageNumber -= 1;
+            
+            if (pageNumber <= 0)
+            {
+                pageNumber = 1;
+            }
+            
             return list.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
         }
     }

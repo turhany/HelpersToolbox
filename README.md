@@ -50,6 +50,10 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.1.1
+* List Extensions > GetPage method, 0 and below paging bug fix
+* Queryable Extensions > AddPaging method, 0 and below paging bug fix
+
 #### 1.1.0
 * Object Extensions > GetFieldValue method added
 * Object Extensions > GetFieldInfo method added
