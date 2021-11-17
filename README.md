@@ -19,10 +19,12 @@ A set of C# extensions/helpers library
   * FromJson
 * Enum Extensions
   * GetDescription
+  * GetDisplayName
 * List Extensions
   * RemoveWhere
   * WhereIf
   * GetPage
+  * SelectRandomFromList
 * Queryable Extensions
   * WhereIf
   * AddPaging
@@ -49,6 +51,10 @@ A set of C# extensions/helpers library
   * ToEnum (Int32,Int64)
 
 ### Release Notes
+
+#### 1.1.2
+* Enum Extensions > GetDisplayName method added
+* List Extensions > SelectRandomFromList method added
 
 #### 1.1.1
 * List Extensions > GetPage method, 0 and below paging bug fix

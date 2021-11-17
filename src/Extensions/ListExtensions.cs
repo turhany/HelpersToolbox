@@ -31,5 +31,32 @@ namespace HelpersToolbox.Extensions
             
             return list.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
         }
+        
+        public static List<T> SelectRandomFromList<T>(this List<T> source, int numberToChoose)
+        {
+            Random rnd = new Random();
+            List<T> response = new List<T>();
+
+            if (source.Count <= numberToChoose)
+            {
+                return source;
+            }
+
+            for (int i = 1; i <= numberToChoose; i++)
+            {
+                int index = rnd.Next(source.Count);
+
+                if (!response.Contains(source[index]))
+                {
+                    response.Add(source[index]);
+                }
+                else
+                {
+                    i--;
+                }
+            }
+
+            return response;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using HelpersToolbox.Extensions;
 
@@ -28,6 +29,7 @@ namespace HelpersToolbox.Samples
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
+            Console.WriteLine($"{nameof(Colors.Blue)} enum display name > {Colors.Blue.GetDisplayName()}");
 
             List<string> cities = new List<string> {"İstanbul", "Ankara", "İzmir"};
             Console.WriteLine();
@@ -38,6 +40,8 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"WhereIf (add expression if condition is true) > {string.Join(',', filteredList)}");
             Console.WriteLine($"GetPage (pageNumber=1, pageSize=1) > {string.Join(',', cities.GetPage(1, 1))}");
             Console.WriteLine($"GetPage (pageNumber=1, pageSize=2) > {string.Join(',', cities.GetPage(1, 2))}");
+            Console.WriteLine($"SelectRandomFromList > {string.Join(',', cities.SelectRandomFromList(1))}");
+            Console.WriteLine($"SelectRandomFromList > {string.Join(',', cities.SelectRandomFromList(1))}");
 
             Console.WriteLine();
             Console.WriteLine("QueryableExtensions----");
@@ -110,6 +114,7 @@ namespace HelpersToolbox.Samples
         {
             [Description("Red color global description.")]
             Red = 0,
+            [Display(Name = "Blue Display Name")]
             [Description("Blue color global description.")]
             Blue = 1
         }
