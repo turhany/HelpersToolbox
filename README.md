@@ -17,6 +17,8 @@ A set of C# extensions/helpers library
   * SanitizeHtml (feyzed on https://github.com/mganss/HtmlSanitizer)
   * Slugify (feyzed on https://github.com/ctolkien/Slugify)
   * FromJson
+  * HashPassword (feyzed on https://github.com/BcryptNet/bcrypt.net)
+  * VerifyPassword (feyzed on https://github.com/BcryptNet/bcrypt.net)
 * Enum Extensions
   * GetDescription
   * GetDisplayName
@@ -51,6 +53,11 @@ A set of C# extensions/helpers library
   * ToEnum (Int32,Int64)
 
 ### Release Notes
+
+#### 1.1.3
+* String Extensions > HashPassword method added
+* String Extensions > VerifyPassword method added
+* HtmlSanitizer version updated to 6.0.453
 
 #### 1.1.2
 * Enum Extensions > GetDisplayName method added

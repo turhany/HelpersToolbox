@@ -144,5 +144,30 @@ namespace HelpersToolbox.Extensions
                 ObjectCreationHandling = ObjectCreationHandling.Replace
             });
         }
+        
+        public static string HashPassword(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            return BCrypt.Net.BCrypt.HashPassword(text);
+        }
+        
+        public static bool VerifyPassword(this string text, string hashedText)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+            
+            if (string.IsNullOrWhiteSpace(hashedText))
+            {
+                throw new ArgumentNullException(nameof(hashedText));
+            }
+
+            return BCrypt.Net.BCrypt.Verify(text, hashedText);
+        }
     }
 }

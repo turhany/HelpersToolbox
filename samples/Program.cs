@@ -25,7 +25,9 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"SanitizeHtml(<img src='src' onerror=alert(document.cookie)>deneme) > {"<img src='src' onerror=alert(document.cookie)>deneme".SanitizeHtml()}");
             Console.WriteLine($"Slugify (Türhan Yıldırım) > {"Türhan Yıldırım".Slugify()}");
             Console.WriteLine($"FromJson ({sampleJson}) > Person.Name = {sampleJson.FromJson<Person>().Name}");
-
+            Console.WriteLine($"HashPassword (turhany) > {"turhany".HashPassword()}");
+            Console.WriteLine($"VerifyPassword (turhany) > {"turhany".VerifyPassword("turhany".HashPassword())}");
+            
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
