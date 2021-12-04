@@ -54,6 +54,9 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.1.4
+* GetDisplayName method moved to Object Extensions
+
 #### 1.1.3
 * String Extensions > HashPassword method added
 * String Extensions > VerifyPassword method added

@@ -31,7 +31,6 @@ namespace HelpersToolbox.Samples
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
-            Console.WriteLine($"{nameof(Colors.Blue)} enum display name > {Colors.Blue.GetDisplayName()}");
 
             List<string> cities = new List<string> {"İstanbul", "Ankara", "İzmir"};
             Console.WriteLine();
@@ -65,6 +64,7 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"GetFieldInfo (TestField) > {person.GetFieldInfo(nameof(Person.TestField))}");
             Console.WriteLine($"HasField (TestField) > {person.HasField(nameof(Person.TestField))}");
             Console.WriteLine($"ToJson > {person.ToJson()}");
+            Console.WriteLine($"{nameof(Colors.Blue)} enum display name > {Colors.Blue.GetDisplayName()}");
 
             var clonedItem = person.DeepClone();
             Console.WriteLine($"DeepClone - Original Object hashCode > {person.GetHashCode()}");
