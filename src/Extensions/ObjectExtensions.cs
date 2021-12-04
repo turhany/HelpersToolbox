@@ -103,10 +103,10 @@ namespace HelpersToolbox.Extensions
             });
         }
         
-        public static string GetDisplayName(this object enumValue)
+        public static string GetDisplayName(this object item)
         {
-            return enumValue.GetType()
-                .GetMember(enumValue.ToString())
+            return item.GetType()
+                .GetMember(item.ToString())
                 .First()
                 .GetCustomAttribute<DisplayAttribute>()
                 .GetName();
