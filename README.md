@@ -54,6 +54,10 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.1.5
+* Byte Extensions > IsEnumValueValid method added
+* Int Extensions > IsEnumValueValid method added
+
 #### 1.1.4
 * GetDisplayName method moved to Object Extensions
 

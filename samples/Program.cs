@@ -100,13 +100,16 @@ namespace HelpersToolbox.Samples
             Console.WriteLine("ByteExtensions----");
             byte byteEnum = 1;
             Console.WriteLine($"Byte: {byteEnum} ToEnum cast (Color.Blue = 1) > {byteEnum.ToEnum<Colors>()}");
+            Console.WriteLine($"Byte: {byteEnum} IsEnumValueValid cast (Color.Blue = 1) > {byteEnum.IsEnumValueValid<Colors>()}");
             
             Console.WriteLine();
             Console.WriteLine("IntExtensions----");
             int intEnum = 1;
             Console.WriteLine($"int: {intEnum} ToEnum cast (Color.Blue = 1) > {intEnum.ToEnum<Colors>()}");
+            Console.WriteLine($"Byte: {intEnum} IsEnumValueValid cast (Color.Blue = 1) > {intEnum.IsEnumValueValid<Colors>()}");
             Int64 int64Enum = 1;
             Console.WriteLine($"int64: {int64Enum} ToEnum cast (Color.Blue = 1) > {int64Enum.ToEnum<Colors>()}");
+            Console.WriteLine($"Byte: {int64Enum} IsEnumValueValid cast (Color.Blue = 1) > {int64Enum.IsEnumValueValid<Colors>()}");
             
             Console.ReadLine();
         }

@@ -14,6 +14,6 @@ namespace HelpersToolbox.Extensions
                 .First()
                 .GetCustomAttribute<DescriptionAttribute>()?
                 .Description ?? string.Empty;
-        } 
-    }
+        }
+    } 
 }
