@@ -49,8 +49,10 @@ A set of C# extensions/helpers library
   * Merge
 * Byte Extensions
   * ToEnum
+  * IsEnumValueValid
 * Int Extensions
   * ToEnum (Int32,Int64)
+  * IsEnumValueValid (Int32,Int64)
 
 ### Release Notes
 
