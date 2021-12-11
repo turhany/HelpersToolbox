@@ -1,5 +1,3 @@
-#   **HelpersToolbox**
-
 ![alt tag](/img/helperstoolbox.png)  
 
 A set of C# extensions/helpers library
