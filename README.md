@@ -51,6 +51,8 @@ A set of C# extensions/helpers library
 * Int Extensions
   * ToEnum (Int32,Int64)
   * IsEnumValueValid (Int32,Int64)
+* Bool Extensions
+  * AsYesNo (bool, bool?)
 
 ### Release Notes
 
