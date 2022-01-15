@@ -111,6 +111,17 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"int64: {int64Enum} ToEnum cast (Color.Blue = 1) > {int64Enum.ToEnum<Colors>()}");
             Console.WriteLine($"Byte: {int64Enum} IsEnumValueValid cast (Color.Blue = 1) > {int64Enum.IsEnumValueValid<Colors>()}");
             
+            Console.WriteLine();
+            Console.WriteLine("BoolExtensions----");
+            Console.WriteLine($"True bool to  AsYesNo > {true.AsYesNo()}");
+            Console.WriteLine($"False bool to  AsYesNo > {false.AsYesNo()}");
+            bool? testBool = null;
+            Console.WriteLine($"Null (nullable)bool to  AsYesNo > {testBool.AsYesNo()}");
+            testBool = true;
+            Console.WriteLine($"True (nullable)bool to  AsYesNo > {testBool.AsYesNo()}");
+            testBool = false;
+            Console.WriteLine($"False (nullable)bool to  AsYesNo > {testBool.AsYesNo()}");
+            
             Console.ReadLine();
         }
 

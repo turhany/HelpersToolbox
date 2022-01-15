@@ -54,6 +54,10 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.1.6
+* Bool Extensions > AsYesNo method added
+* SanitizeHtml version updated to 7.0.473
+
 #### 1.1.5
 * Byte Extensions > IsEnumValueValid method added
 * Int Extensions > IsEnumValueValid method added
