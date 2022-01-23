@@ -27,10 +27,13 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"FromJson ({sampleJson}) > Person.Name = {sampleJson.FromJson<Person>().Name}");
             Console.WriteLine($"HashPassword (turhany) > {"turhany".HashPassword()}");
             Console.WriteLine($"VerifyPassword (turhany) > {"turhany".VerifyPassword("turhany".HashPassword())}");
+            Console.WriteLine($"GetFileEncodingByFilePath (D:\\Projects\\HelpersToolbox\\README.md) > {"D:\\Projects\\HelpersToolbox\\README.md".GetFileEncodingByFilePath()}");
             
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
+            Console.WriteLine($"{nameof(Colors)} get all enum list - EnumToList >  Keys  = {string.Join(";",EnumExtensions.EnumToList<Colors>().Select(p => p.Key))}");
+            Console.WriteLine($"{nameof(Colors)} get all enum list - EnumToList >  Values  = {string.Join(";",EnumExtensions.EnumToList<Colors>().Select(p => p.Value))}");
 
             List<string> cities = new List<string> {"İstanbul", "Ankara", "İzmir"};
             Console.WriteLine();

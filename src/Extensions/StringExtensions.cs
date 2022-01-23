@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Json;
 using System.Linq;
 using System.Security.Cryptography;
@@ -168,6 +169,19 @@ namespace HelpersToolbox.Extensions
             }
 
             return BCrypt.Net.BCrypt.Verify(text, hashedText);
+        }
+        
+        public static Encoding GetFileEncodingByFilePath(this string filepath)
+        {
+            if (string.IsNullOrEmpty(filepath) || !File.Exists(filepath))
+            {
+                throw new FileNotFoundException(filepath);
+            }
+            
+            using var reader = new StreamReader(filepath, Encoding.Default, true);
+            if (reader.Peek() >= 0) // you need this!
+                reader.Read();
+            return reader.CurrentEncoding;
         }
     }
 }

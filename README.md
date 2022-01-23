@@ -56,6 +56,10 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.1.7
+* String Extensions > GetFileEncodingByFilePath method added
+* EnumExtensions Extensions > EnumToList static method added (enum value,enum type - list)
+
 #### 1.1.6
 * Bool Extensions > AsYesNo method added
 * SanitizeHtml version updated to 7.0.473
