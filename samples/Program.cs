@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using HelpersToolbox.Extensions;
 
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
@@ -10,9 +11,9 @@ using HelpersToolbox.Extensions;
 
 namespace HelpersToolbox.Samples
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("StringExtensions----");
             Console.WriteLine($"String is truncate if longer than 6 char > {"Lorem Ipsum is simply dummy text of the printing and".Truncate(10)}");
@@ -125,6 +126,13 @@ namespace HelpersToolbox.Samples
             testBool = false;
             Console.WriteLine($"False (nullable)bool to  AsYesNo > {testBool.AsYesNo()}");
             
+            Console.WriteLine();
+            Console.WriteLine("MessagePackExtensions----");
+            var serializedPerson = MessagePackExtensions.Serialize(person);
+            var deserializedPerson = MessagePackExtensions.Deserialize<Person>(serializedPerson);
+            Console.WriteLine($"Serialize Person as byte array> {Encoding.UTF8.GetString(serializedPerson, 0, serializedPerson.Length)}");
+            Console.WriteLine($"Deserialize Person.Name> {deserializedPerson.Name}");
+            
             Console.ReadLine();
         }
 
@@ -138,7 +146,7 @@ namespace HelpersToolbox.Samples
             Blue = 1
         }
 
-        private class Person
+        public class Person
         {
             public string TestField = "TestFieldValue";
             public string Name { get; set; }

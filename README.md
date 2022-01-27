@@ -55,8 +55,16 @@ A set of C# extensions/helpers library
   * IsEnumValueValid (Int32,Int64)
 * Bool Extensions
   * AsYesNo (bool, bool?)
+* MessagePack Extensions (feyzed on https://github.com/msgpack/msgpack-cli)
+  * Serialize (static)
+  * Deserialize (static)
 
 ### Release Notes
+
+#### 1.1.8
+* MessagePack Extensions > Serialize method added
+* MessagePack Extensions > Deserialize method added
+* SanitizeHtml version updated to 7.0.475
 
 #### 1.1.7
 * String Extensions > GetFileEncodingByFilePath method added
