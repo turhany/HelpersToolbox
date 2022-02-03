@@ -1,25 +1,18 @@
-﻿using System.IO;
-using MsgPack.Serialization;
+﻿using MessagePack;
+using MessagePack.Resolvers;
 
 namespace HelpersToolbox.Extensions
 {
     public class MessagePackExtensions
     {
-        public static byte[] Serialize<T>(T thisObj)
+        public static byte[] Serialize<T>(T obj)
         {
-        	var serializer = MessagePackSerializer.Get<T>();
-
-            using var byteStream = new MemoryStream();
-            serializer.Pack(byteStream, thisObj);
-            return byteStream.ToArray();
+            return MessagePackSerializer.Serialize<T>(obj, TypelessContractlessStandardResolver.Options);
         }
-        
-        public static  T Deserialize<T>(byte[] bytes)
+
+        public static T Deserialize<T>(byte[] bytes)
         {
-        	var serializer = MessagePackSerializer.Get<T>();
-            
-            using var byteStream = new MemoryStream(bytes);
-            return serializer.Unpack(byteStream);
+            return MessagePackSerializer.Deserialize<T>(bytes, TypelessContractlessStandardResolver.Options);
         }
     }
 }
