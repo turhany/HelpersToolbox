@@ -63,7 +63,7 @@ A set of C# extensions/helpers library
 ### Release Notes
 
 #### 1.2.0
-* String Extensions > CompressHtml method added
+* String Extensions > MinifyHtml method added
 * String Extensions > Chunk method name changed as Batch because .net 6 added Chunk method and names conflict
 
 #### 1.1.9
