@@ -9,12 +9,14 @@ using System.Text.RegularExpressions;
 using Ganss.XSS;
 using Newtonsoft.Json;
 using Slugify;
+using WebMarkupMin.Core;
 
 namespace HelpersToolbox.Extensions
 {
     public static class StringExtensions
     {
         private static readonly HtmlSanitizer HtmlSanitizer = new HtmlSanitizer();
+        public static HtmlMinifier HtmlMinifier { get; set; } = new HtmlMinifier();
         private static readonly SlugHelper SlugHelper = new SlugHelper();
         private static readonly Dictionary<string, string> TurkishEnglishCharMappingForSlugify = new Dictionary<string, string>
         {
@@ -182,6 +184,11 @@ namespace HelpersToolbox.Extensions
             if (reader.Peek() >= 0) // you need this!
                 reader.Read();
             return reader.CurrentEncoding;
+        }
+        
+        public static MarkupMinificationResult MinifyHtml(this string value, bool generateStatistic = false)
+        {
+            return HtmlMinifier.Minify(value, generateStatistic);
         }
     }
 }

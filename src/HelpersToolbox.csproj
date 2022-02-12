@@ -15,7 +15,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Version>1.0.4</Version>
-    <PackageVersion>1.1.9</PackageVersion>
+    <PackageVersion>1.2.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +37,7 @@
     <PackageReference Include="Slugify.Core" Version="3.0.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Json" Version="4.7.1" />
+    <PackageReference Include="WebMarkupMin.Core" Version="2.9.0" />
   </ItemGroup>
 
 </Project>

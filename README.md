@@ -18,6 +18,7 @@ A set of C# extensions/helpers library
   * HashPassword (feyzed on https://github.com/BcryptNet/bcrypt.net)
   * VerifyPassword (feyzed on https://github.com/BcryptNet/bcrypt.net)
   * GetFileEncodingByFilePath 
+  * MinifyHtml (feyzed on https://github.com/Taritsyn/WebMarkupMin)
 * Enum Extensions
   * GetDescription
   * GetDisplayName
@@ -31,7 +32,7 @@ A set of C# extensions/helpers library
   * WhereIf
   * AddPaging
 * Enumerable Extensions
-  * Chunk
+  * Batch
 * Object Extensions
   * GetPropertyValue
   * SetPropertyValue
@@ -60,6 +61,10 @@ A set of C# extensions/helpers library
   * Deserialize (static)
 
 ### Release Notes
+
+#### 1.2.0
+* String Extensions > CompressHtml method added
+* String Extensions > Chunk method name changed as Batch because .net 6 added Chunk method and names conflict
 
 #### 1.1.9
 * MessagePack library changed with https://github.com/neuecc/MessagePack-CSharp

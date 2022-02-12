@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using HelpersToolbox.Extensions;
@@ -28,7 +29,12 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"FromJson ({sampleJson}) > Person.Name = {sampleJson.FromJson<Person>().Name}");
             Console.WriteLine($"HashPassword (turhany) > {"turhany".HashPassword()}");
             Console.WriteLine($"VerifyPassword (turhany) > {"turhany".VerifyPassword("turhany".HashPassword())}");
-            Console.WriteLine($"GetFileEncodingByFilePath (D:\\Projects\\HelpersToolbox\\README.md) > {"D:\\Projects\\HelpersToolbox\\README.md".GetFileEncodingByFilePath()}");
+            var sampleFilePath = Path.Combine(Environment.CurrentDirectory, "logo.png");
+            Console.WriteLine($"GetFileEncodingByFilePath ({sampleFilePath}) > {sampleFilePath.GetFileEncodingByFilePath()}");
+            var minifyHtmlResult = "<img src='src' onerror=alert(document.cookie)>deneme".MinifyHtml(true);
+            Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > SavedInPercent: {minifyHtmlResult.Statistics.SavedInPercent}");
+            Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > MinifiedContent: {minifyHtmlResult.MinifiedContent}");
+
             
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
@@ -82,15 +88,15 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"HasAttribute (Description) > {info.HasAttribute<DescriptionAttribute>()}");
 
             cities = new List<string> {"İstanbul", "Ankara", "İzmir", "Adana", "Edirne"};
-            var chunkedList = cities.Chunk(2);
+            var batchedList = cities.Batch(2);
             Console.WriteLine();
             Console.WriteLine("EnumerableExtensions----");
-            Console.WriteLine($"Chunk/Batch (every batch/chunk has 2 element) > 5 item divided 2 item batch/chunk");
-            var chunkIndex = 1;
-            foreach (var chunk in chunkedList)
+            Console.WriteLine($"Batch (every batch has 2 element) > 5 item divided 2 item batch");
+            var batchIndex = 1;
+            foreach (var batch in batchedList)
             {
-                Console.WriteLine($"{chunkIndex}. chunk/batch > items -> {string.Join(',', chunk.ToList())}");
-                chunkIndex++;
+                Console.WriteLine($"{batchIndex}. batch > items -> {string.Join(',', batch.ToList())}");
+                batchIndex++;
             }
 
             var citiesDictionary1 = new Dictionary<string, string> {{"istanbul", "istanbul"}};
