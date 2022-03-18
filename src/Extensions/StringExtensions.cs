@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Json;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -18,21 +20,23 @@ namespace HelpersToolbox.Extensions
         private static readonly HtmlSanitizer HtmlSanitizer = new HtmlSanitizer();
         public static HtmlMinifier HtmlMinifier { get; set; } = new HtmlMinifier();
         private static readonly SlugHelper SlugHelper = new SlugHelper();
-        private static readonly Dictionary<string, string> TurkishEnglishCharMappingForSlugify = new Dictionary<string, string>
-        {
-            {"ı", "i"},
-            {"İ", "I"},
-            {"ö", "o"},
-            {"Ö", "O"},
-            {"ç", "c"},
-            {"Ç", "C"},
-            {"ü", "u"},
-            {"Ü", "U"},
-            {"ğ", "g"},
-            {"Ğ", "G"},
-            {"ş", "s"},
-            {"Ş", "S"}
-        };
+
+        private static readonly Dictionary<string, string> TurkishEnglishCharMappingForSlugify =
+            new Dictionary<string, string>
+            {
+                {"ı", "i"},
+                {"İ", "I"},
+                {"ö", "o"},
+                {"Ö", "O"},
+                {"ç", "c"},
+                {"Ç", "C"},
+                {"ü", "u"},
+                {"Ü", "U"},
+                {"ğ", "g"},
+                {"Ğ", "G"},
+                {"ş", "s"},
+                {"Ş", "S"}
+            };
 
         //Pattern get from there https://emailregex.com/
         private const string EmailValidateRegexPattern =
@@ -108,6 +112,27 @@ namespace HelpersToolbox.Extensions
             return false;
         }
 
+        public static bool IsValidIp(this string text)
+        {
+            return IPAddress.TryParse(text, out var ipAddress) && ipAddress.AddressFamily == AddressFamily.InterNetwork;
+        }
+
+        public static bool IsValidIpRange(this string text)
+        { 
+            return NetTools.IPAddressRange.TryParse(text, out _);;
+        }
+        
+        public static bool IsInIpRange(this string ip, string ipRange)
+        {
+            if (!IsValidIp(ip) || !IsValidIpRange(ipRange))
+            {
+                return false;
+            }
+
+            var ipRangeItem = NetTools.IPAddressRange.Parse(ipRange);
+            return ipRangeItem.Contains(IPAddress.Parse(ip));
+        }
+
         public static string SanitizeHtml(this string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -125,21 +150,22 @@ namespace HelpersToolbox.Extensions
                 return text;
             }
 
-            foreach (var charMapping in TurkishEnglishCharMappingForSlugify.Where(charMapping => text.Contains(charMapping.Key)))
+            foreach (var charMapping in TurkishEnglishCharMappingForSlugify.Where(charMapping =>
+                         text.Contains(charMapping.Key)))
             {
                 text = text.Replace(charMapping.Key, charMapping.Value);
             }
-            
+
             return SlugHelper.GenerateSlug(text);
         }
-        
+
         public static T FromJson<T>(this string text)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
                 return default;
             }
-            
+
             return JsonConvert.DeserializeObject<T>(text, new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
@@ -147,7 +173,7 @@ namespace HelpersToolbox.Extensions
                 ObjectCreationHandling = ObjectCreationHandling.Replace
             });
         }
-        
+
         public static string HashPassword(this string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -157,14 +183,14 @@ namespace HelpersToolbox.Extensions
 
             return BCrypt.Net.BCrypt.HashPassword(text);
         }
-        
+
         public static bool VerifyPassword(this string text, string hashedText)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
                 throw new ArgumentNullException(nameof(text));
             }
-            
+
             if (string.IsNullOrWhiteSpace(hashedText))
             {
                 throw new ArgumentNullException(nameof(hashedText));
@@ -172,20 +198,20 @@ namespace HelpersToolbox.Extensions
 
             return BCrypt.Net.BCrypt.Verify(text, hashedText);
         }
-        
+
         public static Encoding GetFileEncodingByFilePath(this string filepath)
         {
             if (string.IsNullOrEmpty(filepath) || !File.Exists(filepath))
             {
                 throw new FileNotFoundException(filepath);
             }
-            
+
             using var reader = new StreamReader(filepath, Encoding.Default, true);
             if (reader.Peek() >= 0) // you need this!
                 reader.Read();
             return reader.CurrentEncoding;
         }
-        
+
         public static MarkupMinificationResult MinifyHtml(this string value, bool generateStatistic = false)
         {
             return HtmlMinifier.Minify(value, generateStatistic);

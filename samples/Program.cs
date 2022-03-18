@@ -34,6 +34,12 @@ namespace HelpersToolbox.Samples
             var minifyHtmlResult = "<img src='src' onerror=alert(document.cookie)>deneme".MinifyHtml(true);
             Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > SavedInPercent: {minifyHtmlResult.Statistics.SavedInPercent}");
             Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > MinifiedContent: {minifyHtmlResult.MinifiedContent}");
+            Console.WriteLine($"IsValidIp (192.168.1.1) > {"192.168.1.1".IsValidIp()}");
+            Console.WriteLine($"IsValidIp (192.168.1.a) > {"192.168.1.a".IsValidIp()}");
+            Console.WriteLine($"IsValidIpRange (192.168.1.2/20) > {"192.168.1.2/20".IsValidIpRange()}");
+            Console.WriteLine($"IsValidIpRange (192.168.1.2-20) > {"192.168.1.2-20".IsValidIpRange()}");
+            Console.WriteLine($"IsValidIpRange (192.168.1.2-192.168.1.20) > {"192.168.1.2-192.168.1.20".IsValidIpRange()}");
+            Console.WriteLine($"IsInIpRange (192.168.1.2-6 is in 192.168.1.2/20) > {"192.168.1.6".IsInIpRange("192.168.1.2/20")}");
 
             
             Console.WriteLine();

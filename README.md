@@ -12,6 +12,9 @@ A set of C# extensions/helpers library
   * IsValidJson
   * IsValidUrl
   * IsValidEmail
+  * IsValidIp
+  * IsValidIpRange (feyzed on https://github.com/jsakamoto/ipaddressrange/)
+  * IsInIpRange
   * SanitizeHtml (feyzed on https://github.com/mganss/HtmlSanitizer)
   * Slugify (feyzed on https://github.com/ctolkien/Slugify)
   * FromJson
@@ -61,6 +64,13 @@ A set of C# extensions/helpers library
   * Deserialize (static)
 
 ### Release Notes
+
+#### 1.2.1
+* String Extensions > IsValidIp method added
+* String Extensions > IsValidIpRange method added
+* String Extensions > IsInIpRange method added
+* SanitizeHtml version updated to 7.1.488
+* BCrypt.Net-Next version updated to 4.0.3
 
 #### 1.2.0
 * String Extensions > MinifyHtml method added
