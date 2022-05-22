@@ -31,6 +31,10 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"VerifyPassword (turhany) > {"turhany".VerifyPassword("turhany".HashPassword())}");
             var sampleFilePath = Path.Combine(Environment.CurrentDirectory, "logo.png");
             Console.WriteLine($"GetFileEncodingByFilePath ({sampleFilePath}) > {sampleFilePath.GetFileEncodingByFilePath()}");
+            var sampleZipFileWithPassPath = Path.Combine(Environment.CurrentDirectory, "withpass.zip");
+            var sampleZipFileWithoutPassPath = Path.Combine(Environment.CurrentDirectory, "withoutpass.zip");
+            Console.WriteLine($"IsPasswordProtectedZipFile ({sampleZipFileWithPassPath}) > {sampleZipFileWithPassPath.IsPasswordProtectedZipFile()}");
+            Console.WriteLine($"IsPasswordProtectedZipFile ({sampleZipFileWithoutPassPath}) > {sampleZipFileWithoutPassPath.IsPasswordProtectedZipFile()}");
             var minifyHtmlResult = "<img src='src' onerror=alert(document.cookie)>deneme".MinifyHtml(true);
             Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > SavedInPercent: {minifyHtmlResult.Statistics.SavedInPercent}");
             Console.WriteLine($"MinifyHtml(<img src='src' onerror=alert(document.cookie)>deneme) > MinifiedContent: {minifyHtmlResult.MinifiedContent}");

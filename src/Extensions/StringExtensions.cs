@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Ganss.XSS;
+using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
 using Slugify;
 using WebMarkupMin.Core;
@@ -215,6 +216,20 @@ namespace HelpersToolbox.Extensions
         public static MarkupMinificationResult MinifyHtml(this string value, bool generateStatistic = false)
         {
             return HtmlMinifier.Minify(value, generateStatistic);
+        }
+
+        public static bool IsPasswordProtectedZipFile(this string filepath)
+        {
+            if (string.IsNullOrEmpty(filepath) || !File.Exists(filepath))
+            {
+                throw new FileNotFoundException(filepath);
+            }
+
+            FileStream fileStreamIn = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            ZipInputStream zipInStream = new ZipInputStream(fileStreamIn);
+            ZipEntry entry = zipInStream.GetNextEntry();
+
+            return entry.IsCrypted;
         }
     }
 }

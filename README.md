@@ -22,6 +22,7 @@ A set of C# extensions/helpers library
   * VerifyPassword (feyzed on https://github.com/BcryptNet/bcrypt.net)
   * GetFileEncodingByFilePath 
   * MinifyHtml (feyzed on https://github.com/Taritsyn/WebMarkupMin)
+  * IsPasswordProtectedZipFile (feyzed on https://github.com/icsharpcode/SharpZipLib)
 * Enum Extensions
   * GetDescription
   * GetDisplayName
@@ -64,6 +65,9 @@ A set of C# extensions/helpers library
   * Deserialize (static)
 
 ### Release Notes
+
+#### 1.2.2
+* String Extensions > IsPasswordProtectedZipFile method added
 
 #### 1.2.1
 * String Extensions > IsValidIp method added
