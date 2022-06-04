@@ -63,8 +63,16 @@ A set of C# extensions/helpers library
 * MessagePack Extensions (feyzed on https://github.com/neuecc/MessagePack-CSharp)
   * Serialize (static)
   * Deserialize (static)
+* Machine Extensions
+  * GetIPV4Addresses (static)
+  * GetIPV6Addresses (static)
 
 ### Release Notes
+
+#### 1.2.3
+* Machine Extensions > GetIPV4Addresses method added
+* Machine Extensions > GetIPV6Addresses method added 
+* HtmlSanitizer version updated to 7.1.512
 
 #### 1.2.2
 * String Extensions > IsPasswordProtectedZipFile method added
@@ -73,7 +81,7 @@ A set of C# extensions/helpers library
 * String Extensions > IsValidIp method added
 * String Extensions > IsValidIpRange method added
 * String Extensions > IsInIpRange method added
-* SanitizeHtml version updated to 7.1.488
+* HtmlSanitizer version updated to 7.1.488
 * BCrypt.Net-Next version updated to 4.0.3
 
 #### 1.2.0
@@ -87,7 +95,7 @@ A set of C# extensions/helpers library
 * MessagePack Extensions > Serialize method added 
 * MessagePack Extensions > Deserialize method added
 * MessagePack librar > https://github.com/msgpack/msgpack-cli
-* SanitizeHtml version updated to 7.0.475
+* HtmlSanitizer version updated to 7.0.475
 
 #### 1.1.7
 * String Extensions > GetFileEncodingByFilePath method added
@@ -95,7 +103,7 @@ A set of C# extensions/helpers library
 
 #### 1.1.6
 * Bool Extensions > AsYesNo method added
-* SanitizeHtml version updated to 7.0.473
+* HtmlSanitizer version updated to 7.0.473
 
 #### 1.1.5
 * Byte Extensions > IsEnumValueValid method added

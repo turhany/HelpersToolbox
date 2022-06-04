@@ -148,7 +148,12 @@ namespace HelpersToolbox.Samples
             var deserializedPerson = MessagePackExtensions.Deserialize<Person>(serializedPerson);
             Console.WriteLine($"Serialize Person as byte array> {Encoding.UTF8.GetString(serializedPerson, 0, serializedPerson.Length)}");
             Console.WriteLine($"Deserialize Person.Name> {deserializedPerson.Name}");
-            
+
+            Console.WriteLine();
+            Console.WriteLine("MachineExtensions----");
+            Console.WriteLine($"GetIPV4Addresses > {string.Join("," ,MachineExtensions.GetIPV4Addresses().Select(p => p.ToString()).ToList())}");
+            Console.WriteLine($"GetIPV6Addresses > {string.Join(",", MachineExtensions.GetIPV6Addresses().Select(p => p.ToString()).ToList())}");
+
             Console.ReadLine();
         }
 
