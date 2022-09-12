@@ -69,6 +69,11 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.2.4
+* HtmlSanitizer version updated to 7.1.542
+* MessagePack version updated to 2.4.35
+* WebMarkupMin.Core version updated to 2.12.0
+
 #### 1.2.3
 * Machine Extensions > GetIPV4Addresses method added
 * Machine Extensions > GetIPV6Addresses method added 
