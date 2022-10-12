@@ -8,6 +8,8 @@ namespace HelpersToolbox.Extensions
 {
     public static class ObjectExtensions
     {
+        private static BindingFlags FieldBindings = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
+
         public static T GetPropertyValue<T>(this object item, string propertyName)
         {
             var propertyInfo = item.GetPropertyInfo(propertyName);
@@ -32,10 +34,7 @@ namespace HelpersToolbox.Extensions
             var type = item.GetType();
 
             var propertyInfo = type
-                .GetProperties(BindingFlags.NonPublic |
-                               BindingFlags.Public |
-                               BindingFlags.Instance |
-                               BindingFlags.Static).FirstOrDefault(l => l.Name == propertyName);
+                .GetProperties(FieldBindings).FirstOrDefault(l => l.Name == propertyName);
 
             if (propertyInfo == null)
             {
@@ -45,7 +44,7 @@ namespace HelpersToolbox.Extensions
             return propertyInfo;
         }
 
-        public static bool HasProperty(this object item, string propertyName) => item.GetType().GetProperty(propertyName) != null;
+        public static bool HasProperty(this object item, string propertyName) => item.GetType().GetProperty(propertyName, FieldBindings) != null;
         
         public static T GetFieldValue<T>(this object item, string fieldName)
         {
@@ -71,10 +70,7 @@ namespace HelpersToolbox.Extensions
             var type = item.GetType();
 
             var fieldInfo = type
-                .GetFields(BindingFlags.NonPublic |
-                           BindingFlags.Public |
-                           BindingFlags.Instance |
-                           BindingFlags.Static).FirstOrDefault(l => l.Name == fieldName);
+                .GetFields(FieldBindings).FirstOrDefault(l => l.Name == fieldName);
 
             if (fieldInfo == null)
             {
@@ -84,7 +80,7 @@ namespace HelpersToolbox.Extensions
             return fieldInfo;
         }
 
-        public static bool HasField(this object item, string fieldName) => item.GetType().GetField(fieldName) != null;
+        public static bool HasField(this object item, string fieldName) => item.GetType().GetField(fieldName, FieldBindings) != null;
 
         public static T DeepClone<T>(this T obj) => obj != null ? JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj)) : default;
         

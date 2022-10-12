@@ -69,6 +69,11 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.2.5
+* HtmlSanitizer version updated to 8.0.601
+* SharpZipLib version updated to 1.4.0
+* All reflection extensions BindingFlags set as "BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static"
+
 #### 1.2.4
 * HtmlSanitizer version updated to 7.1.542
 * MessagePack version updated to 2.4.35

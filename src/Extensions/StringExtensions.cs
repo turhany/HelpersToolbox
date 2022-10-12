@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using Ganss.XSS;
+using Ganss.Xss;
 using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
 using Slugify;
