@@ -63,6 +63,8 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"GetPage (pageNumber=1, pageSize=2) > {string.Join(',', cities.GetPage(1, 2))}");
             Console.WriteLine($"SelectRandomFromList > {string.Join(',', cities.SelectRandomFromList(1))}");
             Console.WriteLine($"SelectRandomFromList > {string.Join(',', cities.SelectRandomFromList(1))}");
+            Console.WriteLine($"Shuffle > {string.Join(',', cities.Shuffle())}");
+            Console.WriteLine($"Shuffle > {string.Join(',', cities.Shuffle())}");
 
             Console.WriteLine();
             Console.WriteLine("QueryableExtensions----");

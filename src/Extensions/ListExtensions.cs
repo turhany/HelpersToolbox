@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpersToolbox.Internals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,19 +33,23 @@ namespace HelpersToolbox.Extensions
             return list.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
         }
         
-        public static List<T> SelectRandomFromList<T>(this List<T> source, int numberToChoose)
+        public static IList<T> SelectRandomFromList<T>(this List<T> source, int numberToChoose)
         {
-            Random rnd = new Random();
-            List<T> response = new List<T>();
+            if (source == null || !source.Any())
+            {
+                return source;
+            }
 
             if (source.Count <= numberToChoose)
             {
                 return source;
             }
 
+            List<T> response = new List<T>();
+
             for (int i = 1; i <= numberToChoose; i++)
             {
-                int index = rnd.Next(source.Count);
+                int index = ThreadSafeRandom.Next(source.Count);
 
                 if (!response.Contains(source[index]))
                 {
@@ -57,6 +62,16 @@ namespace HelpersToolbox.Extensions
             }
 
             return response;
+        }
+
+        public static IList<T> Shuffle<T>(this IList<T> source)
+        {
+            if (source == null || !source.Any())
+            {
+                return source;
+            }
+
+            return source.OrderBy(x => ThreadSafeRandom.Next()).ToList();
         }
     }
 }

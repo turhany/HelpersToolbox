@@ -32,6 +32,7 @@ A set of C# extensions/helpers library
   * WhereIf
   * GetPage
   * SelectRandomFromList
+  * Shuffle
 * Queryable Extensions
   * WhereIf
   * AddPaging
@@ -68,6 +69,10 @@ A set of C# extensions/helpers library
   * GetIPV6Addresses (static)
 
 ### Release Notes
+
+#### 1.2.6
+* List Extensions > Shuffle method added
+* Threadsafe random flow added for "SelectRandomFromList" and "Shuffle" methods
 
 #### 1.2.5
 * HtmlSanitizer version updated to 8.0.601
