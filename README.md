@@ -73,6 +73,8 @@ A set of C# extensions/helpers library
 #### 1.2.6
 * List Extensions > Shuffle method added
 * Threadsafe random flow added for "SelectRandomFromList" and "Shuffle" methods
+* SharpZipLib version updated to 1.4.1
+* WebMarkupMin.Core version updated to 2.13.0
 
 #### 1.2.5
 * HtmlSanitizer version updated to 8.0.601

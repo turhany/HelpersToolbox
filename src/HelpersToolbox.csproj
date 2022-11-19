@@ -35,11 +35,11 @@
     <PackageReference Include="IPAddressRange" Version="4.2.0" />
     <PackageReference Include="MessagePack" Version="2.4.35" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="SharpZipLib" Version="1.4.0" />
+    <PackageReference Include="SharpZipLib" Version="1.4.1" />
     <PackageReference Include="Slugify.Core" Version="3.0.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Json" Version="4.7.1" />
-    <PackageReference Include="WebMarkupMin.Core" Version="2.12.0" />
+    <PackageReference Include="WebMarkupMin.Core" Version="2.13.0" />
   </ItemGroup>
 
 </Project>
