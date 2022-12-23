@@ -70,6 +70,11 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.2.7
+* IPAddressRange version updated to 5.0.0
+* MessagePack version updated to 2.4.59
+* Newtonsoft.Json version updated to 13.0.2
+
 #### 1.2.6
 * List Extensions > Shuffle method added
 * Threadsafe random flow added for "SelectRandomFromList" and "Shuffle" methods
