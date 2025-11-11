@@ -70,6 +70,15 @@ A set of C# extensions/helpers library
 
 ### Release Notes
 
+#### 1.2.9
+* HtmlSanitizer version updated to 9.0.886
+* IPAddressRange version updated to 6.2.0
+* MessagePack version updated to 3.1.4
+* Newtonsoft.Json version updated to 13.0.4
+* Slugify.Core version updated to 5.1.1
+* System.Json version updated to 4.8.0
+* WebMarkupMin.Core version updated to 2.19.1
+
 #### 1.2.8
 * HtmlSanitizer version updated to 8.0.645
 * IPAddressRange version updated to 6.0.0
