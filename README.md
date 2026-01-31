@@ -23,6 +23,11 @@ A set of C# extensions/helpers library
   * GetFileEncodingByFilePath 
   * MinifyHtml (feyzed on https://github.com/Taritsyn/WebMarkupMin)
   * IsPasswordProtectedZipFile (feyzed on https://github.com/icsharpcode/SharpZipLib)
+  * String Compress Methods
+    * ToGzipAsync
+    * FromGzipAsync
+    * ToBrotliAsync
+    * FromBrotliAsync
 * Enum Extensions
   * GetDescription
   * GetDisplayName
@@ -69,6 +74,16 @@ A set of C# extensions/helpers library
   * GetIPV6Addresses (static)
 
 ### Release Notes
+
+#### 1.3.0
+* HtmlSanitizer version updated to 9.0.889
+* IPAddressRange version updated to 6.3.0 
+* WebMarkupMin.Core version updated to 2.20.1
+* String Compres methods added
+  * ToGzipAsync
+  * FromGzipAsync
+  * ToBrotliAsync
+  * FromBrotliAsync
 
 #### 1.2.9
 * HtmlSanitizer version updated to 9.0.886

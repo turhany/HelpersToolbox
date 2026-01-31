@@ -45,7 +45,20 @@ namespace HelpersToolbox.Samples
             Console.WriteLine($"IsValidIpRange (192.168.1.2-192.168.1.20) > {"192.168.1.2-192.168.1.20".IsValidIpRange()}");
             Console.WriteLine($"IsInIpRange (192.168.1.2-6 is in 192.168.1.2/20) > {"192.168.1.6".IsInIpRange("192.168.1.2/20")}");
 
-            
+            var compressedGzip = "This is a sample text to be compressed using Gzip extension methods.".ToGzipAsync().GetAwaiter().GetResult();
+            Console.WriteLine($"OrginalSize > {compressedGzip.Original.Size}");
+            Console.WriteLine($"CompressedSize Gzip > {compressedGzip.Result.Size}");
+            Console.WriteLine($"Compressed Gzip > {compressedGzip.Percent}");
+            var decompressedGzip = compressedGzip.Result.Value.FromGzipAsync().GetAwaiter().GetResult();
+            Console.WriteLine($"Original and GZip is equal: {compressedGzip.Original.Value == decompressedGzip}");
+
+            var compressedBrotli = "This is a sample text to be compressed using Brotli extension methods.".ToBrotliAsync().GetAwaiter().GetResult();
+            Console.WriteLine($"OrginalSize > {compressedBrotli.Original.Size}");
+            Console.WriteLine($"CompressedSize Brotli > {compressedBrotli.Result.Size}");
+            Console.WriteLine($"Compressed Brotli > {compressedBrotli.Percent}");
+            var decompressedBrotli = compressedBrotli.Result.Value.FromBrotliAsync().GetAwaiter().GetResult();
+            Console.WriteLine($"Original and Brotli is equal: {compressedBrotli.Original.Value == decompressedBrotli }");
+
             Console.WriteLine();
             Console.WriteLine("EnumExtensions----");
             Console.WriteLine($"{nameof(Colors.Red)} enum description > {Colors.Red.GetDescription()}");
